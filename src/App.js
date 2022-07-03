@@ -5,10 +5,9 @@ import {Route, Routes} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      <p>VOILA</p>
+      <Nav/>
       <Routes>
-        <Route path="/test" element={<Nav/>}/>
-
+      
       </Routes>
     </div>
   );

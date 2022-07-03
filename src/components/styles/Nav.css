@@ -1,0 +1,17 @@
+ .Nav{
+    display: flex;
+    justify-content: space-between;
+    max-width:1000px;
+ }
+
+ img{
+    width:50px;
+    height:50px;
+    border-radius:100%;
+ }
+
+ .leftSide, .rightSide, li{
+    display:flex;
+    justify-content: space-between;
+ }
+
