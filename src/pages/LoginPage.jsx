@@ -1,54 +1,56 @@
-// src/pages/SignupPage.js
-
+// src/pages/LoginPage.js
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+
+import './styles/SignupAndLoginPage.css'
 
 const API_URL = "http://localhost:5005";
 
-function SignupPage() {
-  
+function LoginPage(props) {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
   const handleInfos = (e) => {
     setUser({
-    ...user,
-    [e.target.name]:e.target.value
-  });
-  console.log(user)
-}
-  
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-const handleSignupSubmit = (e) => {
-
+  const handleLoginSubmit = (e) => {
+    console.log('infos to submit : ', user)
     e.preventDefault();
-    const requestBody = user;
-    console.log('infs to send : ',user)
-    axios.post(`${API_URL}/auth/signup`, requestBody)
+    axios
+      .post(`${API_URL}/auth/signin`, user)
       .then((response) => {
-        navigate('/login');
+        console.log("JWT token", response.data.token);
+
+        navigate("/");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
-      })
-
+      });
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <div className="LoginPage">
+      <h1>Login</h1>
 
-      <form onSubmit={handleSignupSubmit}>
+      <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={user.email} onChange={handleInfos} />
+        <input
+          type="email"
+          name="email"
+          value={user.email}
+          onChange={handleInfos}
+        />
 
         <label>Password:</label>
         <input
@@ -58,15 +60,14 @@ const handleSignupSubmit = (e) => {
           onChange={handleInfos}
         />
 
-        <button type="submit">Sign Up</button>
+        <button type="submit">Login</button>
       </form>
-
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <p>Don't have an account yet?</p>
+      <Link to={"/signup"}> Sign Up</Link>
     </div>
   );
 }
 
-export default SignupPage;
+export default LoginPage;
