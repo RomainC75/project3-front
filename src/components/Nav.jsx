@@ -19,11 +19,7 @@ export default function Nav() {
         <img src={saxLogo} />
         <li>
           <ul>
-            <NavLink to="/home" />
-            Home
-          </ul>
-          <ul>
-            <Link to ="/instruments">Instruments</Link>
+            <Link to ="/">Products</Link>
           </ul>
           <ul>
             <NavLink to="/categories" />

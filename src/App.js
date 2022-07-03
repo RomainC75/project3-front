@@ -7,17 +7,17 @@ import LoginPage from './pages/LoginPage';
 import IsPrivate from './components/IsPrivate';
 import IsAnon from './components/IsAnon';
 import Cart from './components/Cart'
-import Instruments from './components/Instruments';
+import ProductsList from './components/ProductsList';
 
 function App() {
   return (
     <div className="App">
       <Nav/>
       <Routes>
-        <Route exact path='/' element={<Instruments/>}/>
+        <Route exact path='/' element={<ProductsList/>}/>
         <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/instruments' element={<Instruments/>}/>
+        
         <Route path='/cart' element={<IsPrivate><Cart/></IsPrivate>}/>
       </Routes>
     </div>
