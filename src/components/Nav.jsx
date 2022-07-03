@@ -23,6 +23,9 @@ export default function Nav() {
             Home
           </ul>
           <ul>
+            <Link to ="/instruments">Instruments</Link>
+          </ul>
+          <ul>
             <NavLink to="/categories" />
             Catégories
           </ul>
