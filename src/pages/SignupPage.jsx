@@ -58,7 +58,7 @@ const handleSignupSubmit = (e) => {
           onChange={handleInfos}
         />
 
-        <button type="submit">Sign Up</button>
+        <button className="CurlyButton" type="submit">Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

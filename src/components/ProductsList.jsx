@@ -30,7 +30,7 @@ export default function Instruments() {
   }, []);
   return (
     <div>
-      <h2>Instrument</h2>
+      <h2>Instruments</h2>
       <ul className="Instruments">
         {isLoadedProd &&
           productsList.map((product) => {

@@ -34,16 +34,16 @@ export default function Nav() {
             <Link to="/cart">
             <FontAwesomeIcon icon={faCartShopping} />
             </Link>
-            <button onClick={logOutUser}>Logout</button>
+            <button className="CurlyButton" onClick={logOutUser}>Logout</button>
             <span>{user && user.name}</span>
           </>
         ) : (
           <>
             <Link to="/signup">
-              <button>Sign Up</button>
+              <button className="CurlyButton">Sign Up</button>
             </Link>
             <Link to="/login">
-              <button>Login</button>
+              <button className="CurlyButton">Login</button>
             </Link>
           </>
         )}
