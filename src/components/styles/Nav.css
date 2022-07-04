@@ -1,6 +1,6 @@
 .Nav {
-  background-color: #d3d3d3;
-  display: flex;
+   background-color: #D3D3D3;
+  display: flex; 
   justify-content: space-around;
   max-width: 100%;
   align-items: center;
@@ -9,9 +9,9 @@
   top: 0px;
 }
 .Nav ul {
-  text-decoration: none;
-  display: flex;
-  flex-direction: row;
+   text-decoration: none;
+   display: flex;
+   flex-direction: row;
 }
 
 .saxLogo {
@@ -19,23 +19,23 @@
   height: 80px;
   border-radius: 100%;
 }
-.leftSide {
-  display: flex;
-  align-items: center;
+.leftSide{
+   display: flex;
+   align-items: center;
 }
 .leftSide li {
-  display: flex;
-  justify-content: space-between;
-  text-decoration: none;
-  margin-left: 10px;
+   display: flex;
+   justify-content: space-between;  
+   text-decoration: none;
+   margin-left: 10px;
 }
 .rightSide li {
   display: flex;
   justify-content: space-between;
 }
-.Nav .svg-inline--fa {
-  margin-right: 10px;
+.Nav .svg-inline--fa  {
+   margin-right: 10px;
 }
 a {
-  text-decoration: none;
+   text-decoration: none;
 }
