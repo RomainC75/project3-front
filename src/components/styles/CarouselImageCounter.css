@@ -1,0 +1,17 @@
+.carouselImageCounter.blue{
+    color:rgb(66, 66, 118);
+    transform : scale(0.5)
+}
+
+.CarouselImageCounter {
+    position:absolute;
+    bottom:20px;
+    left:150px;
+    transform: translateX(-50%);
+    width:80%;
+    height:30px;
+}
+
+.carouselImageCounter.icon{
+   
+}
