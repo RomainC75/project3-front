@@ -14,9 +14,6 @@ function AuthProviderWrapper({ children }) {
     localStorage.setItem("authToken", token);
   };
 
-
-  
-
   const authenticateUser = () => {
     const storedToken = localStorage.getItem("authToken");
     console.log('storage from authenticateUser', storedToken)

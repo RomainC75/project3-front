@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Product from "./Product";
 
 import './styles/ProductsList.css'
 
@@ -32,7 +33,7 @@ export default function Instruments() {
       <ul>
         {isLoadedProd &&
           productsList.map((product) => {
-            return <li key={product.id}>{product.name}</li>;
+            return <Product product={product} />
           })}
       </ul>
     </div>
