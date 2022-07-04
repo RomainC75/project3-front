@@ -6,14 +6,16 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  width: 19rem;
+  width: 22rem;
   aspect-ratio: 4/3;
   padding-right: 0%;
+  color: black;
 }
 .description {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  text-align: center;
 }
 
 .picture {
@@ -24,10 +26,16 @@
 
 .reviews {
     display: flex;
+    justify-content: center;    
 }
+
 h3 {
     font-weight: normal;
 }
 .price {
     font-weight: bold;
+}
+.yellowStar {
+    color: #FFFF00;
+    text-shadow: black 0px 1px;
 }

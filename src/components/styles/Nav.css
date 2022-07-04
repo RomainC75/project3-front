@@ -1,7 +1,8 @@
 .Nav {
+   background-color: #D3D3D3;
   display: flex; 
-  justify-content: space-between;
-  max-width: 1000px;
+  justify-content: space-around;
+  max-width: 100%;
   align-items: center;
   height: 136px;
   left: 0px;

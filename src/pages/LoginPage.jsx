@@ -65,7 +65,7 @@ function LoginPage(props) {
           onChange={handleInfos}
         />
 
-        <button type="submit">Login</button>
+        <button className="CurlyButton" type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
