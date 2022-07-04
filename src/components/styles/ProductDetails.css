@@ -1,7 +1,23 @@
+.ProductDetails{
+    display:flex;
+    justify-content:center;
+    margin:0 auto;
+    gap:30px;
+}
+
 .inStockChecked{
     color:green;
 }
 
 .inStockUnchecked{
     color:red;
+}
+
+.leftSide{
+    display:flex;
+    flex-direction:column;
+}
+
+.detail{
+    font-weight:800;
 }

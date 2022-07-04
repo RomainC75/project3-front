@@ -1,8 +1,7 @@
 .carousel{
     width:300px;
     height:240px;
-    border:1px solid black;
-    margin:10px auto;
+    /* border:1px solid black; */
     position:relative;
     display:flex;
     align-items:center;
@@ -22,7 +21,7 @@
     position: absolute;
     width:30px;
     height:30px;
-    background-color: rgb(168, 97, 97);
+    background-color: #F5F7FF;
     font-size:25px;
     font-weight:800;
     text-align: center;
@@ -44,9 +43,9 @@
     left:0;
 }
 
-.carousel .index{
+/* .carousel .index{
     position:absolute;
     bottom:-3px;
     left:150px;
     transform: translateX(-50%);
-}
+} */
