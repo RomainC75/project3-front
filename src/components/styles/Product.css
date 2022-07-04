@@ -8,7 +8,7 @@
   flex-direction: row;
   width: 22rem;
   aspect-ratio: 4/3;
-  padding-right: 0%;
+  padding-right: 1rem;
   color: black;
 }
 .description {
@@ -26,7 +26,14 @@
 
 .reviews {
     display: flex;
-    justify-content: center;    
+    justify-content: center;
+    flex-direction: column; 
+}
+
+.reviewsRating {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
 }
 
 h3 {
@@ -36,6 +43,6 @@ h3 {
     font-weight: bold;
 }
 .yellowStar {
-    color: #FFFF00;
+    color: #0095ff;
     text-shadow: black 0px 1px;
 }
