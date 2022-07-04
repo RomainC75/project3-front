@@ -1,14 +1,13 @@
 .Instruments {
-    display: flex;
-    /* flex-direction: row; */
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .product img {
-    max-width: 100%;
-    object-fit: cover;
-    max-height: 237px;
+  max-width: 100%;
+  object-fit: cover;
+  max-height: 237px;
 }
-
