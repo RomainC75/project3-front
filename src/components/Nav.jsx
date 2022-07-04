@@ -16,22 +16,19 @@ export default function Nav() {
   return (
     <nav className="Nav">
       <div className="leftSide">
-        <img src={saxLogo} alt="saxLogo" />
-        <li>
-          <ul>
+        <img src={saxLogo} alt="saxLogo" className="saxLogo" />
+        <ul>
+          <li>
             <Link to ="/">Products</Link>
-          </ul>
-          <ul>
-            <NavLink to="/categories" />
-            Catégories
-          </ul>
-          <ul>{isLoggedIn}</ul>
-        </li>
+          </li>
+          <li>
+            <NavLink to="/categories">Categories</NavLink>
+          </li>
+          {/* <li>{isLoggedIn}</li> */}
+        </ul>
       </div>
       <div className="rightSide">
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
        
-
         {isLoggedIn ? (
           <>
             <Link to="/cart">

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Product from "./Product";
+import { Link } from "react-router-dom";
 
 import './styles/ProductsList.css'
 
@@ -28,12 +29,14 @@ export default function Instruments() {
       });
   }, []);
   return (
-    <div className="Instruments">
-      <div>Instrument</div>
-      <ul>
+    <div>
+      <h2>Instrument</h2>
+      <ul className="Instruments">
         {isLoadedProd &&
           productsList.map((product) => {
-            return <Product product={product} />
+            return <Link to={`/product/${product._id}`}> 
+            <Product key={product._id} product={product} />
+            </Link> 
           })}
       </ul>
     </div>

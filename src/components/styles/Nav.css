@@ -1,5 +1,5 @@
 .Nav {
-  display: flex;
+  display: flex; 
   justify-content: space-between;
   max-width: 1000px;
   align-items: center;
@@ -7,20 +7,34 @@
   left: 0px;
   top: 0px;
 }
+.Nav ul {
+   text-decoration: none;
+   display: flex;
+   flex-direction: row;
+}
 
-img {
+.saxLogo {
   width: 80px;
   height: 80px;
   border-radius: 100%;
 }
-
-.leftSide,
-.rightSide,
-li {
+.leftSide{
+   display: flex;
+   align-items: center;
+}
+.leftSide li {
+   display: flex;
+   justify-content: space-between;  
+   text-decoration: none;
+   margin-left: 10px;
+}
+.rightSide li {
   display: flex;
   justify-content: space-between;
 }
-
- ul {
-   padding: 0px, 0px, 0px, 0px ;
+.svg-inline--fa  {
+   margin-right: 10px;
+}
+a {
+   text-decoration: none;
 }

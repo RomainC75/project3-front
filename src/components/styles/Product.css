@@ -1,0 +1,33 @@
+.product {
+  border-color: black;
+  border-width: 2px;
+  border-radius: 5%;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 19rem;
+  aspect-ratio: 4/3;
+  padding-right: 0%;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.picture {
+    width: 20rem;
+    display: flex;
+    padding: 10px 5px;
+}
+
+.reviews {
+    display: flex;
+}
+h3 {
+    font-weight: normal;
+}
+.price {
+    font-weight: bold;
+}
