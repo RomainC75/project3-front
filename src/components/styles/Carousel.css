@@ -1,0 +1,52 @@
+.carousel{
+    width:300px;
+    height:240px;
+    border:1px solid black;
+    margin:10px auto;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.carousel img{
+    width:150px;
+    height:150px;
+    margin-left:75px;
+    margin-right:0;
+    transition:all 1s;
+    border-radius:0%;
+}
+
+.carousel .button{
+    position: absolute;
+    width:30px;
+    height:30px;
+    background-color: rgb(168, 97, 97);
+    font-size:25px;
+    font-weight:800;
+    text-align: center;
+    border-radius:100%;
+    user-select: none;
+}
+
+.carousel .button:active{
+    background-color: rgb(155, 25, 36);
+}
+
+.carousel .button.plus{
+    top:85px;
+    right:0;
+}
+
+.carousel .button.minus{
+    top:85px;
+    left:0;
+}
+
+.carousel .index{
+    position:absolute;
+    bottom:-3px;
+    left:150px;
+    transform: translateX(-50%);
+}
