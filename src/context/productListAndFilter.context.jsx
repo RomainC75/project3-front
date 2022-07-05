@@ -10,7 +10,7 @@ function FilterProviderWrapper({ children }) {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(3000);
   const [rating, setRating] = useState([true,true,true,true,true,true]);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("All");
 
   useEffect(()=>{
     console.log('product List : ', productsList)

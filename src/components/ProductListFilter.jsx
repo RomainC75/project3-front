@@ -13,12 +13,19 @@ export default function ProductListFilter() {
     rating,
     setRating,
     category,
+    setCategory,
     isProductLoaded,
     setIsProductLoaded,
   } = useContext(FilterContext);
 
   const [maxPossiblePrice, setMaxPossiblePrice] = useState(0)
   const [minPossiblePrice, setMinPossiblePrice] = useState(0)
+  const [possibleCategories, setPossibleCategories] = useState([])
+
+  useEffect(()=>{
+    setPossibleCategories(Array.from(new Set(productsList.map(product=>product.type))))
+    console.log('----->',Array.from(new Set(productsList.map(product=>product.type))))
+  },[productsList])
 
   useEffect(()=>{
     let maxPossiblePriceTemp = 0
@@ -29,6 +36,7 @@ export default function ProductListFilter() {
     })
     setMaxPossiblePrice(maxPossiblePriceTemp)
     setMinPossiblePrice(minPossiblePriceTemp)
+
   },[isProductLoaded])
 
   const handleMinPrice = (e) => {
@@ -52,6 +60,23 @@ export default function ProductListFilter() {
     setRating(temp)
     console.log(rating)
   }
+
+  const handleAllRating = (e) =>{
+    let temp = [...rating]
+    if(e.target.checked){
+      temp=temp.map(val=>true)
+      setRating(temp)
+    }else{
+      temp=temp.map(val=>false)
+      setRating(temp)
+    }
+  }
+
+  const handleCategory = (e) =>{
+    console.log('value : ', e.target.value)
+    setCategory(e.target.value)
+  }
+
   return (
     <div>
       <div className="priceFilters">
@@ -78,6 +103,8 @@ export default function ProductListFilter() {
       </div>
       <div className="ratingFilters">
         <div>Select the ratings you want</div>
+        <label htmlFor="all">All/None</label>
+        <input name="all" checked={rating.every(rat=>rat)} type="checkbox" onChange={handleAllRating}/>
         <label htmlFor="0">Unknown</label>
         <input name="0" checked={rating[0]} type="checkbox" onChange={handleRating}/>
         <label htmlFor="1">1</label>
@@ -91,6 +118,15 @@ export default function ProductListFilter() {
         <label htmlFor="5">5</label>
         <input name="5" checked={rating[5]} type="checkbox" onChange={handleRating}/>
       </div>
+
+      <label for="pet-select">Choose a pet:</label>
+
+<select name="categories" id="categories" onChange={handleCategory}>
+    <option value='All'>All</option>
+    {possibleCategories.map(cat=><option key={cat} value={cat}>{cat}</option>)}
+    <option value="Guitar">guitar</option>
+    <option value="Bass">bass</option>
+</select>
       
     </div>
   );

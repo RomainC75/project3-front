@@ -44,7 +44,7 @@ export default function Instruments() {
             productsList.filter((product)=>{
               const ratingCeil = Math.ceil(product.globalRate)
               console.log(product.globalRate, ratingCeil)
-              return product.price<maxPrice && product.price>=minPrice && rating[ratingCeil]
+              return product.price<maxPrice && product.price>=minPrice && rating[ratingCeil] && (category==='All' || product.type===category)
             }).map((product) => {
               return <Product key={product._id} product={product} />
             })}
