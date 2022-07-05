@@ -1,7 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
-import { faStar } from "@fortawesome/free-regular-svg-icons";
+
+import { faPlus, faMinus, faStar } from "@fortawesome/free-solid-svg-icons";
+
 
 import "./styles/Product.css";
 
@@ -15,6 +16,14 @@ const Product = ({ product }) => {
     } else {
       array.push("X");
     }
+
+  }
+  if (product.stockQuantity > 0) {
+    document.getElementsByClassName("stockQuantity").textContent = "In Stock";
+  } else {
+    document.getElementsByClassName("stockQuantity").textContent =
+      "Out of Stock";
+
   }
 
   return (
@@ -25,17 +34,14 @@ const Product = ({ product }) => {
 
       <div className="description">
         <p className="reviews">
-          Reviews ({product.reviewsQty}) :
-        <p className="reviewsRating">
-        {array.map((x) =>
-            x === "E" ? (
-              <FontAwesomeIcon className="yellowStar" icon={solidStar} />
-            ) : (
-              <FontAwesomeIcon className="" icon={faStar} />
-            )
+
+          Reviews :{" "}
+          {array.map((x) =>
+            x === "E" ? <div className="yellowStar">★</div> : <div>☆</div>
           )}
         </p>
-        </p> 
+        {/* <p className='reviews'>Reviews : {array.map(x=>x==='E' ? <FontAwesomeIcon icon={faStar}/> : <div>☆</div>)}</p> */}
+
 
         <h3>{product.name}</h3>
 

@@ -34,6 +34,7 @@ function LoginPage(props) {
       .post(`${API_URL}/auth/signin`, user)
       .then((response) => {
         console.log("JWT token", response.data.token);
+        
         storeToken(response.data.token); 
         authenticateUser()
         navigate("/");
@@ -65,12 +66,12 @@ function LoginPage(props) {
           onChange={handleInfos}
         />
 
-        <button className="CurlyButton" type="submit">Login</button>
+        <button type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/signup"}>Sign Up</Link>
     </div>
   );
 }
