@@ -36,8 +36,8 @@ const Product = ({ product }) => {
         <p className="reviews">
 
           Reviews :{" "}
-          {array.map((x) =>
-            x === "E" ? <div className="yellowStar">★</div> : <div>☆</div>
+          {array.map((x,i) =>
+            x === "E" ? <div className="yellowStar" key={`${product._id}-${i}`}>★</div> : <div key={`${product._id}-${i}`}>☆</div>
           )}
         </p>
         {/* <p className='reviews'>Reviews : {array.map(x=>x==='E' ? <FontAwesomeIcon icon={faStar}/> : <div>☆</div>)}</p> */}

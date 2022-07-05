@@ -20,7 +20,7 @@ export default function CarouselImageCounter({ index, maxIndex }) {
   <div className="CarouselImageCounter index">
     
     {arrayOfIndexes.map((val,i)=>{
-        return (val?<FontAwesomeIcon className="carouselImageCounter blue icon" icon={faCircle}/>:<FontAwesomeIcon className="carouselImageCounter blue" icon={faCircleDot}/>)
+        return (val?<FontAwesomeIcon key={`${val}-${i}`} className="carouselImageCounter blue icon" icon={faCircle}/>:<FontAwesomeIcon key={val} className="carouselImageCounter blue" icon={faCircleDot}/>)
     })}
   </div>);
 }
