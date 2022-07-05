@@ -1,6 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faPlus, faMinus, faStar } from "@fortawesome/free-solid-svg-icons";
+
 
 import "./styles/Product.css";
 
@@ -14,12 +16,14 @@ const Product = ({ product }) => {
     } else {
       array.push("X");
     }
+
   }
   if (product.stockQuantity > 0) {
     document.getElementsByClassName("stockQuantity").textContent = "In Stock";
   } else {
     document.getElementsByClassName("stockQuantity").textContent =
       "Out of Stock";
+
   }
 
   return (
@@ -30,12 +34,14 @@ const Product = ({ product }) => {
 
       <div className="description">
         <p className="reviews">
+
           Reviews :{" "}
           {array.map((x) =>
             x === "E" ? <div className="yellowStar">★</div> : <div>☆</div>
           )}
         </p>
         {/* <p className='reviews'>Reviews : {array.map(x=>x==='E' ? <FontAwesomeIcon icon={faStar}/> : <div>☆</div>)}</p> */}
+
 
         <h3>{product.name}</h3>
 
