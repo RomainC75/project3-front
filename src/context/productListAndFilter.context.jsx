@@ -7,10 +7,10 @@ const FilterContext = createContext();
 function FilterProviderWrapper({ children }) {
   const [productsList, setProductsList] = useState([]);
   const [isProductLoaded, setIsProductLoaded] = useState(false)
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(3000);
-  const [rating, setRating] = useState([true,true,true,true,true,true]);
-  const [category, setCategory] = useState("All");
+  const [minPriceSelected, setMinPriceSelected] = useState(0);
+  const [maxPriceSelected, setMaxPriceSelected] = useState(3000);
+  const [ratingSelected, setRatingSelected] = useState([true,true,true,true,true,true]);
+  const [categorySelected, setCategorySelected] = useState("All");
 
   useEffect(()=>{
     console.log('product List : ', productsList)
@@ -25,14 +25,14 @@ function FilterProviderWrapper({ children }) {
       value={{
         productsList,
         setProductsList,
-        minPrice,
-        setMinPrice,
-        maxPrice,
-        setMaxPrice,
-        rating,
-        setRating,
-        category,
-        setCategory,
+        minPriceSelected,
+        setMinPriceSelected,
+        maxPriceSelected,
+        setMaxPriceSelected,
+        ratingSelected,
+        setRatingSelected,
+        categorySelected,
+        setCategorySelected,
         isProductLoaded, 
         setIsProductLoaded
       }}

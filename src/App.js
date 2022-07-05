@@ -7,7 +7,7 @@ import LoginPage from './pages/LoginPage';
 import IsPrivate from './components/IsPrivate';
 import IsAnon from './components/IsAnon';
 import Cart from './components/Cart'
-import ProductsList from './components/ProductsList';
+import ProductsListPage from './pages/ProductsListPage';
 import ProductPage from './pages/ProductPage';
 import UserSettings from './pages/UserSettings';
 
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Nav/>
       <Routes>
-        <Route exact path='/' element={<ProductsList/>}/>
+        <Route exact path='/' element={<ProductsListPage/>}/>
         <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/product/:id' element={<ProductPage/>}/>

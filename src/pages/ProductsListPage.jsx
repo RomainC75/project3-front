@@ -1,19 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
-import { FilterContext } from "../context/productListAndFilter.context";
-import Product from "./Product";
-import ProductListFilter from "./ProductListFilter";
-
-import './styles/ProductsList.css'
+import { FilterContext } from "../context/productListAndFilter.context"
+import Product from "../components/Product";
+import ProductListFilter from "../components/ProductListFilter";
+import {Link} from 'react-router-dom'
+import '../components/styles/ProductsList.css'
 
 const API_URL = "http://localhost:5005";
 
-export default function Instruments() {
-  const {productsList, setProductsList, minPrice,maxPrice,rating,category, isProductLoaded, setIsProductLoaded} = useContext(FilterContext)
+export default function ProductListPage() {
+  const {productsList, setProductsList, minPriceSelected,maxPriceSelected,ratingSelected,categorySelected, isProductLoaded, setIsProductLoaded} = useContext(FilterContext)
   // const [productsList, setProductsList] = useState([]);
   const [isLoadingProd, setIsLoadingProd] = useState(false);
   //const [isProductLoaded, setIsProductLoaded] = useState(false);
-  console.log('maxPrice ! ',maxPrice)
+  console.log('maxPriceSelected ! ',maxPriceSelected)
 
   useEffect(() => {
     setIsLoadingProd(true);
@@ -44,9 +44,9 @@ export default function Instruments() {
             productsList.filter((product)=>{
               const ratingCeil = Math.ceil(product.globalRate)
               console.log(product.globalRate, ratingCeil)
-              return product.price<maxPrice && product.price>=minPrice && rating[ratingCeil] && (category==='All' || product.type===category)
+              return product.price<maxPriceSelected && product.price>=minPriceSelected && ratingSelected[ratingCeil] && (categorySelected==='All' || product.type===categorySelected)
             }).map((product) => {
-              return <Product key={product._id} product={product} />
+              return <Link key={product._id} to={`/product/${product._id}`}><Product product={product} /></Link>
             })}
         </ul>
       </div>
