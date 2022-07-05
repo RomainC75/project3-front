@@ -8,7 +8,7 @@ import "./styles/ProductDetails.css";
 export default function ProductDetails({ product, isLoaded }) {
   return (
     <div className="ProductDetails">
-      <div className="leftSide">
+      <div className="leftSideDetails">
         <h2>{product.name}</h2>
         <div><span class="detail">Brand: </span> {product.brand}</div>
         <div><span class="detail">Type: </span> {product.type}</div>

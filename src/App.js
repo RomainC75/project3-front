@@ -9,6 +9,7 @@ import IsAnon from './components/IsAnon';
 import Cart from './components/Cart'
 import ProductsList from './components/ProductsList';
 import ProductPage from './pages/ProductPage';
+import UserSettings from './pages/UserSettings';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/product/:id' element={<ProductPage/>}/>
         <Route path='/cart' element={<IsPrivate><Cart/></IsPrivate>}/>
+        <Route path='/account' element={<IsPrivate><UserSettings/></IsPrivate>}/>
       </Routes>
     </div>
   );
