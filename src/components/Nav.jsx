@@ -16,7 +16,9 @@ export default function Nav() {
   return (
     <nav className="Nav">
       <div className="leftSide">
+        <Link to='/'>
         <img src={saxLogo} alt="saxLogo" className="saxLogo" />
+        </Link>
         <ul>
           <li>
             <Link to ="/">Products</Link>
