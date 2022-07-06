@@ -39,3 +39,15 @@
 a {
    text-decoration: none;
 }
+
+.basketBlock{
+   position:relative;
+}
+
+.basketBlock p{
+   position:absolute;
+   z-index:3;
+   color:red;
+   top:-3px;
+   right:-4px;
+}

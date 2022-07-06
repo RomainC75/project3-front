@@ -7,7 +7,7 @@ const API_URL = "http://localhost:5005";
 const CartContext = createContext();
 
 function CartProviderWrapper({ children }) {
-    const {isLoggedIn} = useContext(AuthContext)    
+    const {isLoggedIn} = useContext(AuthContext)
     const [ isUpdating, setIsUpdating ] = useState(false)
     const [ isUpdated, setIsUpdated] = useState(false)
     const [ cartState, setCartState ] = useState({
@@ -48,8 +48,7 @@ function CartProviderWrapper({ children }) {
             //LStorage + state
             console.log('-response : ',res.data)
             localStorage.setItem('pendingCart',JSON.stringify(res.data.result))
-            setCartState(res.data)
-
+            setCartState(res.data.result)
             })
         .catch(e=>console.log(e))
     }
@@ -65,11 +64,9 @@ function CartProviderWrapper({ children }) {
             console.log('-response : ',res.data)
             localStorage.setItem('pendingCart',JSON.stringify(res.data))
             setCartState(res.data)
-
             })
         .catch(e=>console.log(e))
     }
-
 
     useEffect(()=>{
         if(isLoggedIn){
@@ -128,7 +125,6 @@ function CartProviderWrapper({ children }) {
                 console.log('new PENDING CART / ',pendingCart)
                 const unifiedCart = unifyCart(pendingCart.products)
                 patchCartAndUpdateStateLS(unifiedCart,pendingCart._id,storedToken)
-                
             }else{
                 //no sessionStorage ? createItem and Post to the backEnd
                 postCartAndUpdateStateLS([newCart],storedToken)
@@ -147,10 +143,9 @@ function CartProviderWrapper({ children }) {
         }
     }
 
-
   return (
     <CartContext.Provider
-      value={{cartState, setCartState, updateServerCart}}
+      value={{cartState, setCartState, updateServerCart, patchCartAndUpdateStateLS}}
     >
       {children}
     </CartContext.Provider>
