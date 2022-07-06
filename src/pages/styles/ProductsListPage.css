@@ -1,0 +1,29 @@
+.Instruments {
+}
+
+.product img {
+  max-width: 100%;
+  object-fit: cover;
+  max-height: 237px;
+}
+
+.filterAndList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+  max-width: 80%;
+  gap: 1rem;
+}
+
+.filterField {
+  display: flex;
+  flex-direction: column;
+  
+}

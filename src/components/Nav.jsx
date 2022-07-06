@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import saxLogo from "../images/saxLogo.png";
 import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import Button from "@mui/material/Button";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -36,16 +37,16 @@ export default function Nav() {
             <Link to="/cart">
             <FontAwesomeIcon icon={faCartShopping} />
             </Link>
-            <button className="CurlyButton" onClick={logOutUser}>Logout</button>
+            <Button variant="contained" className="CurlyButton" onClick={logOutUser}>Logout</Button>
             <span>{user && user.name}</span>
           </>
         ) : (
           <>
             <Link to="/signup">
-              <button className="CurlyButton">Sign Up</button>
+              <Button variant="contained" className="CurlyButton">Sign Up</Button>
             </Link>
             <Link to="/login">
-              <button className="CurlyButton">Login</button>
+              <Button variant="outlined" className="CurlyButton">Login</Button>
             </Link>
           </>
         )}

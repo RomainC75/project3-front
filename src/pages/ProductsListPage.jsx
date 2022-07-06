@@ -4,7 +4,7 @@ import { FilterContext } from "../context/productListAndFilter.context"
 import Product from "../components/Product";
 import ProductListFilter from "../components/ProductListFilter";
 import {Link} from 'react-router-dom'
-import '../components/styles/ProductsList.css'
+import './styles/ProductsListPage.css'
 
 const API_URL = "http://localhost:5005";
 
@@ -34,7 +34,7 @@ export default function ProductListPage() {
 
   return (
     <div className="Instruments">
-      <h2>Instrument</h2>
+      <h2>Instruments</h2>
       
       <div className="filterAndList">
         <ProductListFilter/>
