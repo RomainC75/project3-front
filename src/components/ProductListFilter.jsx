@@ -78,7 +78,7 @@ export default function ProductListFilter() {
   }
 
   return (
-    <div>
+    <div className="filterField">
       <div className="priceFilters">
         <label htmlFor="minPriceSelected">minimum (price)</label>
         <input

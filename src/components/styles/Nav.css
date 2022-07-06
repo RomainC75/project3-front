@@ -39,7 +39,10 @@
 a {
    text-decoration: none;
 }
-
+.Nav Button {
+   margin-right: 0.5rem;
+  }
+  
 .basketBlock{
    position:relative;
 }
