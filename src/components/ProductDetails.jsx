@@ -4,6 +4,7 @@ import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Carousel from "./Carousel";
 
 import "./styles/ProductDetails.css";
+import AddToCart from "./AddToCart";
 
 export default function ProductDetails({ product, isLoaded }) {
   return (
@@ -24,8 +25,9 @@ export default function ProductDetails({ product, isLoaded }) {
             <FontAwesomeIcon className="inStockUnchecked" icon={faXmark} />
           )}
         </div>
+        <AddToCart product={product}/>
       </div>
-
+     
       <Carousel images={isLoaded ? product.pictures : []} />
     </div>
   );
