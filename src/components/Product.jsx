@@ -1,14 +1,8 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { faPlus, faMinus, faStar } from "@fortawesome/free-solid-svg-icons";
-
-
 import "./styles/Product.css";
 
 const Product = ({ product }) => {
   const starsNumber = Math.round(parseFloat(product.globalRate));
-  const star = "";
   const array = [];
   for (let i = 1; i <= 5; i++) {
     if (i <= starsNumber) {

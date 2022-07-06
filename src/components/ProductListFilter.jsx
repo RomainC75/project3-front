@@ -5,17 +5,14 @@ import { FilterContext } from "../context/productListAndFilter.context";
 export default function ProductListFilter() {
   const {
     productsList,
-    setProductsList,
     minPriceSelected,
     setMinPriceSelected,
     maxPriceSelected,
     setMaxPriceSelected,
     ratingSelected,
     setRatingSelected,
-    categorySelected,
     setCategorySelected,
     isProductLoaded,
-    setIsProductLoaded,
   } = useContext(FilterContext);
 
   const [maxPossiblePrice, setMaxPossiblePrice] = useState(0)

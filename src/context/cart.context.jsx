@@ -1,15 +1,12 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
 import axios from "axios";
 import {AuthContext} from './auth.context'
-import { faRoad } from "@fortawesome/free-solid-svg-icons";
 
 const API_URL = "http://localhost:5005";
 const CartContext = createContext();
 
 function CartProviderWrapper({ children }) {
     const {isLoggedIn} = useContext(AuthContext)
-    const [ isUpdating, setIsUpdating ] = useState(false)
-    const [ isUpdated, setIsUpdated] = useState(false)
     const [ cartState, setCartState ] = useState({
         products:[],
         status:"Pending"
@@ -73,7 +70,7 @@ function CartProviderWrapper({ children }) {
         
             const storedCartInLS = localStorage.getItem('pendingCart')
             const storedToken = localStorage.getItem('authToken')
-            const offlineCart = localStorage.getItem('offlineCart')
+      
             //get the pending cart in the backend
             axios.get(`${API_URL}/cart/pending`,{
                     headers:{
@@ -101,11 +98,6 @@ function CartProviderWrapper({ children }) {
                 .catch(e=>console.log('error ! ',e))
         }
     },[isLoggedIn])
-
-    const addItem = (item) =>{
-        const newCart = JSON.parse(localStorage.getitem('pendingCart'))
-        console.log(newCart)
-    }
 
     //get the "pending" Cart
     //update the sessionStorage ? 
