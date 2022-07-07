@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { CartContext } from "../context/cart.context";
 import './styles/CartPage.css'
@@ -51,12 +52,14 @@ export default function Cart() {
       <ul>
       {downloadedCart && downloadedCart.length>0 && downloadedCart.map((product, i) => {
         return (
-          <li key={`cart-${product._id}-${i}`}>
-            <h3>{product.productId.name}</h3>
-            <img src={product.productId.pictures[0]} alt={`${product.productId.name} ${i}`}/>
-            <p>Quantity : <span>{product.quantity}</span></p>
-            <div className="toRemove" onClick={()=>removeItemInDownloadedCart(product.productId._id)}>Remove</div>
-          </li>);
+          <Link to={`/product/${product._id}`}>
+            <li key={`cart-${product._id}-${i}`}>
+              <h3>{product.productId.name}</h3>
+              <img src={product.productId.pictures[0]} alt={`${product.productId.name} ${i}`}/>
+              <p>Quantity : <span>{product.quantity}</span></p>
+              <div className="toRemove" onClick={()=>removeItemInDownloadedCart(product.productId._id)}>Remove</div>
+            </li>
+          </Link>);
       })}
       </ul>
     </div>
