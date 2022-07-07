@@ -17,7 +17,6 @@ export default function ProductPage() {
         setIsLoading(true)
         axios.get(`${API_URL}/product/${id}`)
         .then((ans)=>{
-            console.log(ans.data)
             setProduct(ans.data)
             setIsLoading(false)
             setIsLoaded(true)

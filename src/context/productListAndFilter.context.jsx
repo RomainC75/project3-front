@@ -11,11 +11,9 @@ function FilterProviderWrapper({ children }) {
   const [categorySelected, setCategorySelected] = useState("All");
 
   useEffect(()=>{
-    console.log('product List : ', productsList)
   },[productsList])
 
   useEffect(()=>{
-    console.log('is Product loaded : ', isProductLoaded)
   },[isProductLoaded])
 
   return (

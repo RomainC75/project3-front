@@ -21,7 +21,6 @@ export default function ProductListFilter() {
 
   useEffect(()=>{
     setPossibleCategories(Array.from(new Set(productsList.map(product=>product.type))))
-    console.log('----->',Array.from(new Set(productsList.map(product=>product.type))))
   },[productsList])
 
   useEffect(()=>{
@@ -50,12 +49,8 @@ export default function ProductListFilter() {
 
   const handleRatingSelected = (e) =>{
     const temp = [...ratingSelected]
-    console.log('name : ',e.target.name)
-    console.log('checked : ',e.target.checked)
     temp[e.target.name]=e.target.checked
-    console.log('temp : ',temp)
     setRatingSelected(temp)
-    console.log(ratingSelected)
   }
 
   const handleAllRatingSelected = (e) =>{
@@ -70,7 +65,6 @@ export default function ProductListFilter() {
   }
 
   const handleCategorySelected = (e) =>{
-    console.log('value : ', e.target.value)
     setCategorySelected(e.target.value)
   }
 

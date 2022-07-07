@@ -22,7 +22,6 @@ function SignupPage() {
     ...user,
     [e.target.name]:e.target.value
   });
-  console.log(user)
 }
   
 
@@ -30,7 +29,6 @@ const handleSignupSubmit = (e) => {
 
     e.preventDefault();
     const requestBody = user;
-    console.log('infs to send : ',user)
     axios.post(`${API_URL}/auth/signup`, requestBody)
       .then((response) => {
         navigate('/login');

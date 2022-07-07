@@ -17,25 +17,19 @@ function CartProviderWrapper({ children }) {
     //on each modification of the cartState
 
     const unifyCart = (itemsArray) =>{
-        console.log('entry',itemsArray)
         const temp = []
         for(let i=0 ; i<itemsArray.length ; i++){
             const index = temp.findIndex(item=>item.productId===itemsArray[i].productId)
-            console.log('index',index)
             if(index===-1){
                 temp.push(itemsArray[i])
-                console.log("temp : -1 : ",temp)
             }else{
                 temp[index].quantity+=itemsArray[i].quantity
-                console.log("temp",temp)
             }
         }
-        console.log('finish ! ', temp)
         return temp
     }
 
     const patchCartAndUpdateStateLS = (fullNewCart,id, storedToken) =>{
-        console.log('fullNewCart',fullNewCart)
         axios.patch(`${API_URL}/cart/${id}`,fullNewCart,{
             headers:{
                 Authorization:`Bearer ${storedToken}`
@@ -43,14 +37,12 @@ function CartProviderWrapper({ children }) {
         })
         .then((res)=>{
             //LStorage + state
-            console.log('-response : ',res.data)
             localStorage.setItem('pendingCart',JSON.stringify(res.data.result))
             setCartState(res.data.result)
             })
         .catch(e=>console.log(e))
     }
     const postCartAndUpdateStateLS = (fullNewCart, storedToken) =>{
-        console.log('fullNewCart',fullNewCart)
         axios.post(`${API_URL}/cart`,fullNewCart,{
             headers:{
                 Authorization:`Bearer ${storedToken}`
@@ -58,7 +50,6 @@ function CartProviderWrapper({ children }) {
         })
         .then((res)=>{
             //LStorage + state
-            console.log('-response : ',res.data)
             localStorage.setItem('pendingCart',JSON.stringify(res.data))
             setCartState(res.data)
             })
@@ -80,8 +71,6 @@ function CartProviderWrapper({ children }) {
                 //get an object or null
                 .then(res=>{
                     //back Pending : no  && LS pending : yes
-                    console.log('----->then inside : ',res)
-                    console.log('storedCartInLs', storedCartInLS)
                     if('message' in res.data && storedCartInLS!==null){
                         //send cart in LS
                         postCartAndUpdateStateLS(JSON.parse(storedCartInLS).products,storedToken)
@@ -90,7 +79,6 @@ function CartProviderWrapper({ children }) {
                         const offlineCartSTR = localStorage.getItem('offlineCart')
                         if(offlineCartSTR!==null){
                             //insert offlineCart
-                            console.log('--->',res.data)
                             res.data.products =  unifyCart([...JSON.parse(offlineCartSTR),...res.data.products])
                             localStorage.removeItem('offlineCart')
                             patchCartAndUpdateStateLS(res.data.products,res.data._id,storedToken)
@@ -113,17 +101,12 @@ function CartProviderWrapper({ children }) {
     //update the server with a patch request
     const updateServerCart = (newCart)=>{
         const storedToken = localStorage.getItem('authToken')
-        console.log('token : ', storedToken)
-        console.log('NEW CART !',newCart)
-        
+
         if(isLoggedIn ){
             const pendingCartSTR = localStorage.getItem('pendingCart') 
             if(pendingCartSTR){
-                console.log("UNPARSED CART", pendingCartSTR);
                 const pendingCart=JSON.parse(pendingCartSTR)
-                console.log('pendingCart',pendingCart)
                 pendingCart.products.push(newCart)
-                console.log('new PENDING CART / ',pendingCart)
                 const unifiedCart = unifyCart(pendingCart.products)
                 patchCartAndUpdateStateLS(unifiedCart,pendingCart._id,storedToken)
             }else{

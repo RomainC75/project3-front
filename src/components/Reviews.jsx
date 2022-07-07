@@ -15,16 +15,14 @@ export default function Reviews() {
     const [ isError, setIsError ] = useState(false)
     const [ currentPage, setCurrentPage ] = useState(1)
     const [ errorMessage, setErrorMessage ] = useState(false)
-    console.log("id",id)
 
     const updateReviews = (page) =>{
-        console.log(('id', id))
+
         setIsLoading(true)
         axios.get(`${API_URL}/review/${id}?page=${page}`)
         .then(res=>{
             
             setReviewsState(res.data)
-            console.log('reviews : ',res.data)
             
             setIsLoading(false)
             setIsLoaded(true)
@@ -59,7 +57,6 @@ export default function Reviews() {
             </div>
             <ul>
                 {reviewsState.reviews.map(review=>{
-                    console.log("review",review)
                     return (
                         <li key={`${review.userId}-${review.productId}`}>
                             <p>{review.rate}</p>

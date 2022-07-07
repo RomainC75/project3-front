@@ -13,7 +13,6 @@ export default function AddToCart({ product }) {
 
   const addToCartFn = (e) => {
 
-    console.log('PRODUCT : ',product)
     //------------------------------------
     updateServerCart({
       productId: product._id,

@@ -13,7 +13,6 @@ export default function CarouselImageCounter({ index, maxIndex }) {
       array.push(i <= index ? true : false);
     }
     setArrayOfIndexes(array);
-    console.log("array", index, maxIndex, array);
   }, [index, maxIndex]);
 
   return (
