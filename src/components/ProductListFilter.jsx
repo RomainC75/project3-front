@@ -39,8 +39,8 @@ export default function ProductListFilter() {
     if(e.target.value<maxPriceSelected){
       setMinPriceSelected(e.target.value)
     }
-    
   };
+  
   const handleMaxPriceSelected = (e) => {
     if(e.target.value>minPriceSelected){
       setMaxPriceSelected(e.target.value);
