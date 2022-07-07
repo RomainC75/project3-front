@@ -34,8 +34,6 @@ const Product = ({ product }) => {
             x === "E" ? <div className="yellowStar" key={`${product._id}-${i}`}>★</div> : <div key={`${product._id}-${i}`}>☆</div>
           )}
         </p>
-        {/* <p className='reviews'>Reviews : {array.map(x=>x==='E' ? <FontAwesomeIcon icon={faStar}/> : <div>☆</div>)}</p> */}
-
 
         <h3>{product.name}</h3>
 

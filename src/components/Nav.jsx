@@ -25,7 +25,6 @@ export default function Nav() {
           <li>
             <NavLink to="/categories">Categories</NavLink>
           </li>
-          {/* <li>{isLoggedIn}</li> */}
         </ul>
       </div>
       <div className="rightSide">
