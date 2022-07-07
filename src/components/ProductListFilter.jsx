@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 
+import './styles/ProductListFilter.css'
+
 import { FilterContext } from "../context/productListAndFilter.context";
 
 export default function ProductListFilter() {
@@ -68,7 +70,8 @@ export default function ProductListFilter() {
     setCategorySelected(e.target.value)
   }
 
-  return (
+  return (<>
+    <div className="filterCalc"></div>
     <div className="filterField">
       <div className="priceFilters">
         <label htmlFor="minPriceSelected">minimum (price)</label>
@@ -118,5 +121,6 @@ export default function ProductListFilter() {
 </select>
       
     </div>
+  </>
   );
 }

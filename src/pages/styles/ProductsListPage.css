@@ -24,7 +24,15 @@
 .filterField {
   display: flex;
   flex-direction: column;
-  min-width: 18,75rem;
+  width: 18.75rem;
+  min-width: 18.75rem;
+  position: fixed;
+}
+.filterCalc {
+  display: flex;
+  flex-direction: column;
+  width: 18.75rem;
+  min-width: 18.75rem;
 }
 
 a {
