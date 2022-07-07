@@ -19,7 +19,6 @@ export default function Carousel({images}) {
         {images.length>0 && images.map((image,i)=><img src={image} key={`${image}-${i}`} alt={`${image}-${i}`} style={{transform:`translateX(-${imageIndex*225}px)`}}/>)}
         <div className="button minus" onClick={()=>changeImageIndex(-1)}><FontAwesomeIcon className="carouselCommand" icon={faMinus}/></div>
         <div className="button plus" onClick={()=>changeImageIndex(1)}><FontAwesomeIcon className="carouselCommand" icon={faPlus}/></div>
-        {/* <div className="index">{imageIndex+1}/{images.length}</div> */}
         <CarouselImageCounter index={imageIndex} maxIndex={images.length}/>
     </div>
   )

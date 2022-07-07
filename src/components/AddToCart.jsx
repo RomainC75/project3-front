@@ -13,7 +13,6 @@ export default function AddToCart({ product }) {
 
   const addToCartFn = (e) => {
 
-    //------------------------------------
     updateServerCart({
       productId: product._id,
       quantity: parseInt(qty),
