@@ -87,9 +87,18 @@ function CartProviderWrapper({ children }) {
                         postCartAndUpdateStateLS(JSON.parse(storedCartInLS).products,storedToken)
                     //pending cart on server and pending cart on LocalS
                     }else if('products' in res.data ){
+                        const offlineCartSTR = localStorage.getItem('offlineCart')
+                        if(offlineCartSTR!==null){
+                            //insert offlineCart
+                            console.log('--->',res.data)
+                            res.data.products =  unifyCart([...JSON.parse(offlineCartSTR),...res.data.products])
+                            localStorage.removeItem('offlineCart')
+                            patchCartAndUpdateStateLS(res.data.products,res.data._id,storedToken)
+                        }else{
+                            localStorage.setItem('pendingCart',JSON.stringify(res.data))
+                            setCartState(res.data)
+                        }
                         //server crush LS and State
-                        localStorage.setItem('pendingCart',JSON.stringify(res.data))
-                        setCartState(res.data)
                         //AFTER ! 
                         //if DateOfLs < DateOfPendingServerData : ecrase
                         //mix and store in LS and update !
