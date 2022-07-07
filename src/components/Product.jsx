@@ -1,7 +1,15 @@
 import React from "react";
+import AddToCart from "./AddToCart";
+import { Link } from "react-router-dom";
 import "./styles/Product.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark, faCheck } from "@fortawesome/free-solid-svg-icons";
+
+
+
 
 const Product = ({ product }) => {
+
   const starsNumber = Math.ceil(parseFloat(product.globalRate));
   console.log(product)
   const array = [];
@@ -22,10 +30,11 @@ const Product = ({ product }) => {
 
   return (
     <li className="product">
+      <Link key={product._id} to={`/product/${product._id}`}>
       <picture className="picture">
         <img src={product.pictures[0]} alt={product.name} />
       </picture>
-
+      </Link>
       <div className="description">
         <p className="reviews">
 
@@ -37,9 +46,13 @@ const Product = ({ product }) => {
         </p>
         <h3>{product.name}</h3>
         <p className="price">{product.price} €</p>
-        <p className={product.stockQuantity>0 ? "stockQuantity inStock" : "stockQuantity outOfStock"}>
-          {product.stockQuantity > 0 ? "In Stock" : "Out of Stock"}
-        </p>
+        
+        {product.stockQuantity>0 ? 
+          <p className="stockQuantity gree"><FontAwesomeIcon className="carouselCommand" icon={faCheck}/>In Stock !</p>
+        :
+        <p className="stockQuantity red"><FontAwesomeIcon className="carouselCommand" icon={faCircleXmark}/>In Stock !</p>
+        }
+        <AddToCart product={product}/>
       </div>
     </li>
   );

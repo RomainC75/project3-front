@@ -32,7 +32,6 @@ function CartProviderWrapper({ children }) {
             }
         })
         .then((res)=>{
-            //LStorage + state
             localStorage.setItem('pendingCart',JSON.stringify(res.data.result))
             setCartState(res.data.result)
             })
@@ -45,14 +44,13 @@ function CartProviderWrapper({ children }) {
             }
         })
         .then((res)=>{
-            //LStorage + state
             localStorage.setItem('pendingCart',JSON.stringify(res.data))
             setCartState(res.data)
             })
         .catch(e=>console.log(e))
     }
 
-    // usefull when the user logs in
+    // When the user Logs in
     useEffect(()=>{
         if(isLoggedIn){
             const storedCartInLS = localStorage.getItem('pendingCart')
@@ -81,9 +79,7 @@ function CartProviderWrapper({ children }) {
         }
     },[isLoggedIn])
 
-    //get the "pending" Cart
-    //update the sessionStorage ? 
-    //update the server with a patch request
+
     const updateServerCart = (newCart)=>{
         const storedToken = localStorage.getItem('authToken')
         if(isLoggedIn ){

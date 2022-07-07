@@ -19,7 +19,7 @@
 }
 
 .picture {
-    width: 20rem;
+    width: 10rem;
     display: flex;
     padding: 10px 5px;
 }
@@ -47,9 +47,9 @@ h3 {
     text-shadow: black 0px 1px;
 }
 
-.inStock{
+.stockQuantity.green{
     color:green;
 }
-.outOfStock{
+.stockQuantity.red{
     color:red;
 }
