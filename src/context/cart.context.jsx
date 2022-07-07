@@ -12,10 +12,6 @@ function CartProviderWrapper({ children }) {
         status:"Pending"
     })
 
-    //synchronize the cartState and sessionStorage
-    //at start 
-    //on each modification of the cartState
-
     const unifyCart = (itemsArray) =>{
         const temp = []
         for(let i=0 ; i<itemsArray.length ; i++){
@@ -56,29 +52,22 @@ function CartProviderWrapper({ children }) {
         .catch(e=>console.log(e))
     }
 
+    // usefull when the user logs in
     useEffect(()=>{
         if(isLoggedIn){
-        
             const storedCartInLS = localStorage.getItem('pendingCart')
             const storedToken = localStorage.getItem('authToken')
-      
-            //get the pending cart in the backend
             axios.get(`${API_URL}/cart/pending`,{
                     headers:{
                         Authorization:`Bearer ${storedToken}`
                     }
                 })
-                //get an object or null
                 .then(res=>{
-                    //back Pending : no  && LS pending : yes
                     if('message' in res.data && storedCartInLS!==null){
-                        //send cart in LS
                         postCartAndUpdateStateLS(JSON.parse(storedCartInLS).products,storedToken)
-                    //pending cart on server and pending cart on LocalS
                     }else if('products' in res.data ){
                         const offlineCartSTR = localStorage.getItem('offlineCart')
                         if(offlineCartSTR!==null){
-                            //insert offlineCart
                             res.data.products =  unifyCart([...JSON.parse(offlineCartSTR),...res.data.products])
                             localStorage.removeItem('offlineCart')
                             patchCartAndUpdateStateLS(res.data.products,res.data._id,storedToken)
@@ -86,10 +75,6 @@ function CartProviderWrapper({ children }) {
                             localStorage.setItem('pendingCart',JSON.stringify(res.data))
                             setCartState(res.data)
                         }
-                        //server crush LS and State
-                        //AFTER ! 
-                        //if DateOfLs < DateOfPendingServerData : ecrase
-                        //mix and store in LS and update !
                     }
                 })
                 .catch(e=>console.log('error ! ',e))
@@ -101,7 +86,6 @@ function CartProviderWrapper({ children }) {
     //update the server with a patch request
     const updateServerCart = (newCart)=>{
         const storedToken = localStorage.getItem('authToken')
-
         if(isLoggedIn ){
             const pendingCartSTR = localStorage.getItem('pendingCart') 
             if(pendingCartSTR){
@@ -110,11 +94,9 @@ function CartProviderWrapper({ children }) {
                 const unifiedCart = unifyCart(pendingCart.products)
                 patchCartAndUpdateStateLS(unifiedCart,pendingCart._id,storedToken)
             }else{
-                //no sessionStorage ? createItem and Post to the backEnd
                 postCartAndUpdateStateLS([newCart],storedToken)
             }
         }else{
-            //logged:no && LocalS:yes
             const offlineCartSTR = localStorage.getItem('offlineCart') 
             if(offlineCartSTR){
                 const offlineCart = JSON.parse(offlineCartSTR)
