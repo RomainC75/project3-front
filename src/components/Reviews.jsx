@@ -13,17 +13,13 @@ export default function Reviews() {
     const [ isLoading,  setIsLoading ]=useState(false)
     const [ isLoaded, setIsLoaded ] = useState(false)
     const [ isError, setIsError ] = useState(false)
-    const [ currentPage, setCurrentPage ] = useState(1)
     const [ errorMessage, setErrorMessage ] = useState(false)
 
     const updateReviews = (page) =>{
-
         setIsLoading(true)
         axios.get(`${API_URL}/review/${id}?page=${page}`)
         .then(res=>{
-            
             setReviewsState(res.data)
-            
             setIsLoading(false)
             setIsLoaded(true)
         })
@@ -33,7 +29,6 @@ export default function Reviews() {
             setIsLoading(false)
         })
     }
-
     useEffect(()=>{
         updateReviews(1)
     },[])
@@ -44,8 +39,6 @@ export default function Reviews() {
             updateReviews(pageToLookFor)
         }
     }
-
-
   return (
     <div className="Reviews">
         {isLoading && <div className="progress"></div>}
@@ -66,7 +59,7 @@ export default function Reviews() {
                 })}
             </ul>
         </div>}
-        
+        {isError && <div className="error">{errorMessage}</div>}        
     </div>
     
   )
