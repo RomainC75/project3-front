@@ -1,20 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
-import './styles/Carousel.css'
 import CarouselImageCounter from './CarouselImageCounter';
 
+import './styles/Carousel.css'
+
 export default function Carousel({images}) {
-    console.log('inside carousel : ',images)
     const [imageIndex, setImageIndex]  = useState(0)
     const changeImageIndex = (direction) =>{
-        if(imageIndex+direction>=0 && imageIndex+direction<images.length){
-            setImageIndex(imageIndex+direction)
-            console.log(imageIndex)
-        }
+      if(imageIndex+direction>=0 && imageIndex+direction<images.length){
+          setImageIndex(imageIndex+direction)
+      }
     }   
   return (
     <div className="carousel">

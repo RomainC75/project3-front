@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, {useEffect, useState} from 'react'
 import { useParams} from 'react-router-dom'
 import ProductDetails from '../components/ProductDetails';
+import Reviews from '../components/Reviews';
 
 const API_URL = "http://localhost:5005";
 
@@ -31,6 +32,7 @@ export default function ProductPage() {
     <div className="ProductPage">
         <h2>ProductPage</h2>
         {isLoading ? <div className="progress"><div>Loading…</div></div> : <ProductDetails product={product} isLoaded={isLoaded}/>}
+        <Reviews productId={product._id}/>
         {isError && <p>{errorMessage}</p>}
     </div>
     

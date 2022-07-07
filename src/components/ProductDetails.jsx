@@ -27,7 +27,6 @@ export default function ProductDetails({ product, isLoaded }) {
         </div>
         <AddToCart product={product}/>
       </div>
-     
       <Carousel images={isLoaded ? product.pictures : []} />
     </div>
   );
