@@ -1,7 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
-import axios from "axios";
 
-const API_URL = "http://localhost:5005";
 const FilterContext = createContext();
 
 function FilterProviderWrapper({ children }) {

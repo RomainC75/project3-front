@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
-import { Navigate } from "react-router-dom";
 import axios from "axios";
 import Button from "@mui/material/Button";
 
@@ -10,7 +9,7 @@ const API_URL = "http://localhost:5005";
 function UserSettings() {
   const storedToken = localStorage.getItem("authToken");
   const [userInfo, setUserInfo] = useState({});
-  const { isLoggedIn, isLoading, user } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   useEffect(() => {
     (
       isLoggedIn &&

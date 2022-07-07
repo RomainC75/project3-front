@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import Nav from './components/Nav';
 import {Route, Routes} from 'react-router-dom'
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import IsPrivate from './components/IsPrivate';
-import IsAnon from './components/IsAnon';
+//import IsAnon from './components/IsAnon';
 import Cart from './pages/CartPage'
 import ProductsListPage from './pages/ProductsListPage';
 import ProductPage from './pages/ProductPage';

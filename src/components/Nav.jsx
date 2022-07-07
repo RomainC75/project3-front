@@ -6,10 +6,7 @@ import Button from "@mui/material/Button";
 import { CartContext } from "../context/cart.context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import {
-  faMagnifyingGlass,
-  faCartShopping,
-} from "@fortawesome/free-solid-svg-icons";
+import {faCartShopping} from "@fortawesome/free-solid-svg-icons";
 import "./styles/Nav.css";
 
 export default function Nav() {

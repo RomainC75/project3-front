@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 import ProductDetails from '../components/ProductDetails';
 
 const API_URL = "http://localhost:5005";
@@ -29,10 +29,9 @@ export default function ProductPage() {
     },[])
   return (
     <div className="ProductPage">
-        
         <h2>ProductPage</h2>
         {isLoading ? <div className="progress"><div>Loading…</div></div> : <ProductDetails product={product} isLoaded={isLoaded}/>}
-
+        {isError && <p>{errorMessage}</p>}
     </div>
     
   )

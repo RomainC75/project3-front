@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
 
 import { CartContext } from "../context/cart.context";
-import { AuthContext } from "../context/auth.context";
 import './styles/CartPage.css'
 const API_URL = "http://localhost:5005";
 
@@ -65,7 +64,7 @@ export default function Cart() {
         return (
           <li key={`cart-${product._id}-${i}`}>
             <h3>{product.productId.name}</h3>
-            <img src={product.productId.pictures[0]} alt={`${product.productId.name} image`}/>
+            <img src={product.productId.pictures[0]} alt={`${product.productId.name} ${i}`}/>
             <div className="toRemove" onClick={()=>removeItemInDownloadedCart(product.productId._id)}>Remove</div>
           </li>);
       })}
