@@ -6,7 +6,7 @@ import ProductListFilter from "../components/ProductListFilter";
 import {Link} from 'react-router-dom'
 import './styles/ProductsListPage.css'
 
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 export default function ProductListPage() {
   const {productsList, setProductsList, minPriceSelected,maxPriceSelected,ratingSelected,categorySelected, isProductLoaded, setIsProductLoaded} = useContext(FilterContext)
@@ -14,7 +14,7 @@ export default function ProductListPage() {
   const [isLoadingProd, setIsLoadingProd] = useState(false);
   //const [isProductLoaded, setIsProductLoaded] = useState(false);
   // console.log('maxPriceSelected ! ',maxPriceSelected)
-
+  console.log('API_URL',API_URL)
   useEffect(() => {
     setIsLoadingProd(true);
     axios
