@@ -65,6 +65,7 @@ export default function Cart() {
           <li key={`cart-${product._id}-${i}`}>
             <h3>{product.productId.name}</h3>
             <img src={product.productId.pictures[0]} alt={`${product.productId.name} ${i}`}/>
+            <p>Quantity : <span>{product.quantity}</span></p>
             <div className="toRemove" onClick={()=>removeItemInDownloadedCart(product.productId._id)}>Remove</div>
           </li>);
       })}
