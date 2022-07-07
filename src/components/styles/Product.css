@@ -46,3 +46,10 @@ h3 {
     color: #0095ff;
     text-shadow: black 0px 1px;
 }
+
+.inStock{
+    color:green;
+}
+.outOfStock{
+    color:red;
+}
