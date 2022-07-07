@@ -15,7 +15,6 @@ function AuthProviderWrapper({ children }) {
 
   const authenticateUser = () => {
     const storedToken = localStorage.getItem("authToken");
-    console.log('storage from authenticateUser', storedToken)
     if (storedToken) {
       setIsLoading(true);
       axios
@@ -25,7 +24,6 @@ function AuthProviderWrapper({ children }) {
           },
         })
         .then((ans) => {
-            console.log('LOGGED ! ')
           setIsLoggedIn(true);
           setIsLoading(false);
           setUser(ans.data);

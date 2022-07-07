@@ -21,18 +21,15 @@ function UserSettings() {
         })
         .then((response) => {
           setUserInfo(response.data);
-          // console.log(response.data);
           return userInfo;
         })
     )
-      .then(console.log(userInfo))
       .catch((err) => {
         console.error(err);
       });
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
     const { firstName, lastName, address } = userInfo;
     const storedToken = localStorage.getItem("authToken");
     axios.put(

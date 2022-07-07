@@ -28,13 +28,10 @@ function LoginPage(props) {
   };
 
   const handleLoginSubmit = (e) => {
-    console.log('infos to submit : ', user)
     e.preventDefault();
     axios
       .post(`${API_URL}/auth/signin`, user)
-      .then((response) => {
-        console.log("JWT token", response.data.token);
-        
+      .then((response) => {    
         storeToken(response.data.token); 
         authenticateUser()
         navigate("/");
