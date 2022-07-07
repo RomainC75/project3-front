@@ -36,15 +36,22 @@
 .Nav .svg-inline--fa  {
    margin-right: 10px;
 }
-a {
+.Nav a {
    text-decoration: none;
+   color :black;
 }
 .Nav Button {
    margin-right: 0.5rem;
   }
-  
+
+.rightSide {
+   display: flex;
+   justify-content: space-evenly;
+   min-width: 15rem;
+}
 .basketBlock{
-   position:relative;
+   position: relative;
+   margin-left: 0.5rem;
 }
 
 .basketBlock p{
