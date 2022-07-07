@@ -3,7 +3,7 @@ import saxLogo from "../images/saxLogo.png";
 import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import Button from "@mui/material/Button";
-
+import { CartContext } from "../context/cart.context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -14,6 +14,7 @@ import "./styles/Nav.css";
 
 export default function Nav() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const {cartState} = useContext(CartContext)
   return (
     <nav className="Nav">
       <div className="leftSide">
@@ -34,8 +35,10 @@ export default function Nav() {
        
         {isLoggedIn ? (
           <>
-            <Link to="/cart">
+          
+            <Link className="basketBlock" to="/cart">
             <FontAwesomeIcon icon={faCartShopping} />
+            <p>{ 'products' in cartState && cartState.products.length }</p>
             </Link>
             <Button variant="contained" className="CurlyButton" onClick={logOutUser}>Logout</Button>
             <span>{user && user.name}</span>

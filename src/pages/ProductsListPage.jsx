@@ -13,7 +13,7 @@ export default function ProductListPage() {
   // const [productsList, setProductsList] = useState([]);
   const [isLoadingProd, setIsLoadingProd] = useState(false);
   //const [isProductLoaded, setIsProductLoaded] = useState(false);
-  console.log('maxPriceSelected ! ',maxPriceSelected)
+  // console.log('maxPriceSelected ! ',maxPriceSelected)
 
   useEffect(() => {
     setIsLoadingProd(true);
@@ -21,10 +21,10 @@ export default function ProductListPage() {
       .get(`${API_URL}/product`)
       .then((ans) => {
         setProductsList(ans.data);
-        console.log(ans.data);
+        //console.log(ans.data);
         setIsLoadingProd(false);
         setIsProductLoaded(true);
-        console.log(ans.data.find(product=>product.name==="Fender 63 Tele Custom AOW Relic MBDW"))
+        //console.log(ans.data.find(product=>product.name==="Fender 63 Tele Custom AOW Relic MBDW"))
       })
       .catch((e) => {
         setIsLoadingProd(false);
@@ -43,7 +43,7 @@ export default function ProductListPage() {
           {isProductLoaded &&
             productsList.filter((product)=>{
               const ratingCeil = Math.ceil(product.globalRate)
-              console.log(product.globalRate, ratingCeil)
+              //console.log(product.globalRate, ratingCeil)
               return product.price<maxPriceSelected && product.price>=minPriceSelected && ratingSelected[ratingCeil] && (categorySelected==='All' || product.type===categorySelected)
             }).map((product) => {
               return <Link key={product._id} to={`/product/${product._id}`}><Product product={product} /></Link>

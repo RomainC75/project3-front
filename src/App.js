@@ -6,7 +6,7 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import IsPrivate from './components/IsPrivate';
 import IsAnon from './components/IsAnon';
-import Cart from './components/Cart'
+import Cart from './pages/CartPage'
 import ProductsListPage from './pages/ProductsListPage';
 import ProductPage from './pages/ProductPage';
 import UserSettingsPage from './pages/UserSettingsPage';
