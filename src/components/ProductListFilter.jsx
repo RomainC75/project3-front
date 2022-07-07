@@ -110,7 +110,7 @@ export default function ProductListFilter() {
         <input name="5" checked={ratingSelected[5]} type="checkbox" onChange={handleRatingSelected}/>
       </div>
 
-      <label for="pet-select">Choose a pet:</label>
+      <label for="pet-select">Choose a category:</label>
 
 <select name="categories" id="categories" onChange={handleCategorySelected}>
     <option value='All'>All</option>
