@@ -52,14 +52,15 @@ export default function Cart() {
       <ul>
       {downloadedCart && downloadedCart.length>0 && downloadedCart.map((product, i) => {
         return (
-          <Link to={`/product/${product._id}`}>
             <li key={`cart-${product._id}-${i}`}>
+          <Link to={`/product/${product.productId._id}`}>
               <h3>{product.productId.name}</h3>
               <img src={product.productId.pictures[0]} alt={`${product.productId.name} ${i}`}/>
               <p>Quantity : <span>{product.quantity}</span></p>
+          </Link>
               <div className="toRemove" onClick={()=>removeItemInDownloadedCart(product.productId._id)}>Remove</div>
             </li>
-          </Link>);
+          );
       })}
       </ul>
     </div>
